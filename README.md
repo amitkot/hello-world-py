@@ -47,5 +47,5 @@ $ docker build .
 To build the multistage image:
 
 ```console
-$ docker build . --file multistage.Dockerfile
+$ docker build . --file Dockerfile
 ```
