@@ -23,8 +23,12 @@ FROM python:3.12-slim-bookworm
 # Copy the application from the builder
 COPY --from=builder --chown=app:app /app /app
 
+# Set default PORT environment variable
+ENV PORT=8080
+
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Run the FastAPI application by default
-CMD ["fastapi", "dev", "--host", "0.0.0.0", "/app/main.py"]
+# CMD ["fastapi", "dev", "--host", "0.0.0.0", "/app/main.py"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--log-level", "debug"]
