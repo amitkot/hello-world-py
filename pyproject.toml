@@ -4,13 +4,8 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.31.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-fastapi = "^0.78.0"  # You can specify a specific version if needed
-uvicorn = "^0.16.0"   # You can specify a specific version if needed
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
