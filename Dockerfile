@@ -20,6 +20,9 @@ FROM python:3.12-slim-bookworm
 # Python executable must be the same, e.g., using `python:3.11-slim-bookworm`
 # will fail.
 
+# Create a non-root user with UID 1001
+RUN useradd -ms /bin/bash -u 1001 app
+
 # Copy the application from the builder
 COPY --from=builder --chown=app:app /app /app
 
@@ -37,6 +40,9 @@ COPY ./entrypoint.sh /app/entrypoint.sh
 
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
+
+# Switch to the non-privileged user
+USER app
 
 # Use the entrypoint script
 CMD ["/app/entrypoint.sh"]
