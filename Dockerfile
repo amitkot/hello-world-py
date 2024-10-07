@@ -29,9 +29,6 @@ ENV PORT=8000
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Expose a static port (e.g., 8000), which is common or default
-EXPOSE 8000
-
 # Copy the entrypoint script
 COPY ./entrypoint.sh /app/entrypoint.sh
 
