@@ -23,6 +23,9 @@ FROM python:3.12-slim-bookworm
 # Copy the application from the builder
 COPY --from=builder --chown=app:app /app /app
 
+# Set environment to development mode
+# ENV ENV=dev
+
 # Set default PORT environment variable
 ENV PORT=8000
 
